@@ -20,3 +20,15 @@ arvore inserir_bst(arvore raiz, int valor){
 
     return raiz;
 }
+
+//PREORDER
+arvore preorder_bst(arvore raiz){
+    if (raiz != NULL){
+        //Processar minha raiz relativa.
+        printf("[%d]", raiz->valor);
+        
+        //Encadeamentoso recursivos.
+        preorder_bst(raiz->esq);
+        preorder_bst(raiz->dir);
+    }
+}    
