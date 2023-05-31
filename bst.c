@@ -47,6 +47,19 @@ arvore inorder_bst(arvore raiz){
         inorder_bst(raiz->dir);
     }
 }   
+
+//POSORDER
+arvore posorder_bst(arvore raiz){
+    if (raiz != NULL){
+        
+        //Recursão novamente para visitar os nós esq e dir.
+        posorder_bst(raiz->esq);
+        posorder_bst(raiz->dir);
+        
+        //Imprimir o valor do nó atual.
+        printf("[%d]", raiz->valor);
+    }
+}
         
 
 //REMOVER
