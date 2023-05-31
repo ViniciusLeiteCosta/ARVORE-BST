@@ -33,6 +33,22 @@ arvore preorder_bst(arvore raiz){
     }
 }
 
+//INORDER 
+arvore inorder_bst(arvore raiz){
+    if (raiz != NULL){
+        //Ainda há nós para visitar
+        //Visite o nó filho da esquerda.
+        inorder_bst(raiz->esq);
+        
+        //Imprimir o valor do nó atual.
+        printf("[%d]", raiz->valor);
+        
+        //Recursão novamente para visitar o nó filho da direita.
+        inorder_bst(raiz->dir);
+    }
+}   
+        
+
 //REMOVER
 arvore remover_bst(arvore raiz, int valor){
     
