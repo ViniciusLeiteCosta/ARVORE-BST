@@ -307,6 +307,6 @@ void imprimir_arvore(arvore raiz, int nivel) {
 
 //FINALIZAR PROGRAMA
 void sair() {
-    printf("\n----- FINALIZANDO PROGRAMA -----\n");
+    printf("\n------ FINALIZANDO PROGRAMA ------\n");
     exit(0);
 }
