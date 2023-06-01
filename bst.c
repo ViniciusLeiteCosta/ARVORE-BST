@@ -119,4 +119,5 @@ arvore reverso_bst(arvore raiz) {
     printf("[%d]", root->data);
     //Percorre as subárvores esquerda (menores);
     reverso_bst(root->left);
+    printf("\n");
 }
