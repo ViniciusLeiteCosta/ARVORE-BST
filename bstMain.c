@@ -28,17 +28,16 @@ int main() {
         printf("4 - INORDER - BST\n");
         printf("5 - POSORDER - BST\n");
         printf("6 - REVERSO - BST\n");
-        printf("7 - VERIFICA SE É PRIMO - BST\n");
-        printf("8 - QUANTIDADE DE NÚMEROS PRIMOS - BST\n");
-        printf("9 - SUCESSOR - BST\n");
-        printf("10 - CAMINHO - BST\n");
-        printf("11 - SOMATÓRIO - BST\n");
-        printf("12 - PODAR - BST\n");
-        printf("13 - REAJUSTE - BST\n");
-        printf("14 - VERIFICAR EXISTÊNCIA DE NÚMERO - BST\n");
-        printf("15 - DESCENDENTES DE UM NÚMERO - BST\n");
-        printf("16 - ALTURA - BST\n");
-        printf("17 - IMPRIMIR ARVORE - BST\n");
+        printf("7 - QUANTIDADE DE NÚMEROS PRIMOS - BST\n");
+        printf("8 - SUCESSOR - BST\n");
+        printf("9 - CAMINHO - BST\n");
+        printf("10 - SOMATÓRIO - BST\n");
+        printf("11 - PODAR - BST\n");
+        printf("12 - REAJUSTE - BST\n");
+        printf("13 - VERIFICAR EXISTÊNCIA DE NÚMERO - BST\n");
+        printf("14 - DESCENDENTES DE UM NÚMERO - BST\n");
+        printf("15 - ALTURA - BST\n");
+        printf("16 - IMPRIMIR ARVORE - BST\n");
         printf("99 - FECHAR PROGRAMA\n");
         printf("-----------------------------------------------\n");
         printf("OPÇÃO: ");
@@ -79,41 +78,32 @@ int main() {
                 printf("\n");
                 break;
             case 7:
-                printf("DIGITE UM NÚMERO: ");
-                scanf("%d", &valor);
-                if (Primo(valor)) {
-                    printf("O NÚMERO %d É PRIMO.\n", valor);
-                } else {
-                    printf("O NÚMERO %d NÃO É PRIMO.\n", valor);
-                }
-                break;
-            case 8:
                 printf("A QUANTIDADE DE PRIMOS NA BST É: %d\n", qtdPrimo(raiz));
                 break;
-            case 9:
+            case 8:
                 printf("DIGITE O NÚMERO: ");
                 scanf("%d", &n);
                 sucessor_bst(n, raiz);
                 break;
-            case 10:
+            case 9:
                 printf("DIGITE O NÚMERO: ");
                 scanf("%d", &n);
                 caminho_bst(n, raiz);
                 break;
-            case 11:
+            case 10:
                 printf("O SOMATÓRIO DOS ELEMENTOS DA BST É: %d\n", somatorio_bst(raiz));
                 break;
-            case 12:
+            case 11:
                 printf("DIGITE O NÚMERO: ");
                 scanf("%d", &n);
                 raiz = podar_bst(n, raiz);
                 break;
-            case 13:
+            case 12:
                 printf("DIGITE O PERCENTUAL DE REAJUSTE: ");
                 scanf("%lf", &percentual);
                 raiz = reajusta_bst(raiz, percentual);
                 break;
-            case 14:
+            case 13:
                 printf("DIGITE O NÚMERO: ");
                 scanf("%d", &n);
                 if (existe_bst(raiz, n)) {
@@ -122,15 +112,15 @@ int main() {
                     printf("O NÚMERO %d NÃO EXISTE NA BST.\n", n);
                 }
                 break;
-            case 15:
+            case 14:
                 printf("DIGITE O NÚMERO: ");
                 scanf("%d", &n);
                 descendentes_bst(n, raiz);
                 break;
-            case 16:
+            case 15:
                 printf("ALTURA DA BST É: %d\n", altura_bst(raiz));
                 break;
-            case 17:
+            case 16:
                 printf("IMPRIMIR ARVORE:\n");
                 imprimir_arvore(raiz, 0);
                 sleep(10);
