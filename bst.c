@@ -1,3 +1,4 @@
+#include "bst.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -314,7 +315,7 @@ int altura_bst(arvore raiz) {
     return 1 + (altura_esq > altura_dir ? altura_esq : altura_dir);
 }
 
-//SAIR
+//FINALIZAR PROGRAMA
 void sair() {
     exit(0);
 }
