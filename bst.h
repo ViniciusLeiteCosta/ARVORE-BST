@@ -6,7 +6,6 @@ typedef struct No {
     struct No* esq;
     struct No* dir;
 } No;
-
 typedef No* arvore;
 
 arvore inserir_bst(arvore raiz, int valor);
