@@ -1,33 +1,30 @@
 #ifndef BST_H
 #define BST_H
 
-//Estrutura do no.
-typedef struct no {
+typedef struct No {
     int valor;
-    struct no* esq;
-    struct no* dir;
-} *arvore;
+    struct No* esq;
+    struct No* dir;
+} No;
 
-//Cabeçalho das funções.
-arvore preorder_bst(arvore raiz);
-arvore inorder_bst(arvore raiz);
-arvore posorder_bst(arvore raiz);
+typedef No* arvore;
+
 arvore inserir_bst(arvore raiz, int valor);
 arvore remover_bst(arvore raiz, int valor);
-arvore reverso_bst(arvore raiz);
-int Primo(int num);
+void preorder_bst(arvore raiz);
+void inorder_bst(arvore raiz);
+void posorder_bst(arvore raiz);
+void reverso_bst(arvore raiz);
+int Primo(int n);
 int qtdPrimo(arvore raiz);
-arvore sucessor_bst(int n, arvore raiz);
-arvore caminho_bst(int n, arvore raiz);
+void sucessor_bst(int valor, arvore raiz);
+void caminho_bst(int valor, arvore raiz);
 int somatorio_bst(arvore raiz);
-arvore podar_bst(int n, arvore raiz);
+arvore podar_bst(int valor, arvore raiz);
 arvore reajusta_bst(arvore raiz, double percentual);
-int existe_bst(arvore raiz, int chave);
-arvore descendentes_bst(int n, arvore raiz);
+int existe_bst(arvore raiz, int valor);
+void descendentes_bst(int valor, arvore raiz);
 int altura_bst(arvore raiz);
-void sair();
+void imprimir_arvore(arvore raiz, int nivel);
 
 #endif
-
-
-
