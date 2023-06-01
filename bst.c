@@ -121,3 +121,36 @@ arvore reverso_bst(arvore raiz) {
     reverso_bst(root->left);
     printf("\n");
 }
+
+//VERIFICAR SE UM NÚMERO É PRIMO.
+int Primo(int num) {
+    if (num <= 1) {
+        return 0;
+    }
+
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+// QUANTIDADE DE PRIMOS
+int qtdPrimo(arvore raiz) {
+    if (raiz == NULL) {
+        return 0;
+    }
+
+    int total = 0;
+
+    if (Primo(raiz->valor)) {
+        total++;
+    }
+
+    total += qtdPrimo(raiz->esq);
+    total += qtdPrimo(raiz->dir);
+
+    return total;
+}
+    
