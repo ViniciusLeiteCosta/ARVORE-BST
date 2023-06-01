@@ -153,4 +153,46 @@ int qtdPrimo(arvore raiz) {
 
     return total;
 }
+
+arvore sucessor_bst(int n, arvore raiz) {
+    if (raiz == NULL) {
+        printf("-1\n");
+        return;
+    }
+
+    arvore sucessor = NULL;
+    arvore atual = raiz;
+
+    // Encontrar o nó com o valor n na árvore
+    while (atual != NULL) {
+        if (n < atual->valor) {
+            sucessor = atual;
+            atual = atual->esq;
+        } else if (n > atual->valor) {
+            atual = atual->dir;
+        } else {
+            break;
+        }
+    }
+
+    // Verificar se o nó com o valor n foi encontrado
+    if (atual == NULL) {
+        printf("-1\n");
+        return;
+    }
+
+    // Encontrar o nó sucessor
+    if (atual->dir != NULL) {
+        sucessor = atual->dir;
+        while (sucessor->esq != NULL) {
+            sucessor = sucessor->esq;
+        }
+        printf("%d\n", sucessor->valor);
+    } else if (sucessor != NULL) {
+        printf("%d\n", sucessor->valor);
+    } else {
+        printf("-1\n");
+    }
+}
+
     
