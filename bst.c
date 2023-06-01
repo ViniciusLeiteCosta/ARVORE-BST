@@ -197,7 +197,7 @@ arvore sucessor_bst(int n, arvore raiz) {
 }
 
 //CAMINHO
-arvore caminho(int n, arvore raiz) {
+arvore caminho_bst(int n, arvore raiz) {
     if (raiz == NULL) {
         return;
     }
@@ -205,25 +205,56 @@ arvore caminho(int n, arvore raiz) {
     printf("[%d]", raiz->valor);
 
     if (n < raiz->valor) {
-        caminho(n, raiz->esq);
+        caminho_bst(n, raiz->esq);
     } else if (n > raiz->valor) {
-        caminho(n, raiz->dir);
+        caminho_bst(n, raiz->dir);
     } else {
         printf("\n");
     }
 }
 
 //SOMATÓRIO
-int somatorio(arvore raiz) {
+int somatorio_bst(arvore raiz) {
     if (raiz == NULL) {
         return 0;
     }
 
     int soma = raiz->valor;
-    soma += somatorio(raiz->esq);
-    soma += somatorio(raiz->dir);
+    soma += somatorio_bst(raiz->esq);
+    soma += somatorio_bst(raiz->dir);
 
     return soma;
 }
+
+//PODAR
+arvore podar(int n, arvore raiz) {
+    if (raiz == NULL) {
+        return NULL;
+    }
+
+    if (n < raiz->valor) {
+        raiz->esq = podar(n, raiz->esq);
+    } else if (n > raiz->valor) {
+        raiz->dir = podar(n, raiz->dir);
+    } else {
+        raiz = remover_no(raiz);
+    }
+
+    return raiz;
+}
+
+arvore remover_no(arvore no) {
+    if (no == NULL) {
+        return NULL;
+    }
+
+    no->esq = remover_no(no->esq);
+    no->dir = remover_no(no->dir);
+
+    free(no);
+
+    return NULL;
+}
+
 
     
