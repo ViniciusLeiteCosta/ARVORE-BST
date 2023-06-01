@@ -227,15 +227,15 @@ int somatorio_bst(arvore raiz) {
 }
 
 //PODAR
-arvore podar(int n, arvore raiz) {
+arvore podar_bst(int n, arvore raiz) {
     if (raiz == NULL) {
         return NULL;
     }
 
     if (n < raiz->valor) {
-        raiz->esq = podar(n, raiz->esq);
+        raiz->esq = podar_bst(n, raiz->esq);
     } else if (n > raiz->valor) {
-        raiz->dir = podar(n, raiz->dir);
+        raiz->dir = podar_bst(n, raiz->dir);
     } else {
         raiz = remover_no(raiz);
     }
@@ -243,13 +243,13 @@ arvore podar(int n, arvore raiz) {
     return raiz;
 }
 
-arvore remover_no(arvore no) {
+arvore removerNo_bst(arvore no) {
     if (no == NULL) {
         return NULL;
     }
 
-    no->esq = remover_no(no->esq);
-    no->dir = remover_no(no->dir);
+    no->esq = removerNo_bst(no->esq);
+    no->dir = removerNo_bst(no->dir);
 
     free(no);
 
@@ -257,21 +257,21 @@ arvore remover_no(arvore no) {
 }
 
 //REAJUSTA
-arvore reajusta(arvore raiz, double percentual) {
+arvore reajusta_bst(arvore raiz, double percentual) {
     if (raiz != NULL) {
         // Aplica o reajuste ao valor do nó atual
         raiz->valor = raiz->valor * (1 + percentual);
 
         // Recursivamente aplica o reajuste aos nós filhos
-        raiz->esq = reajusta(raiz->esq, percentual);
-        raiz->dir = reajusta(raiz->dir, percentual);
+        raiz->esq = reajusta_bst(raiz->esq, percentual);
+        raiz->dir = reajusta_bst(raiz->dir, percentual);
     }
     
     return raiz;
 }
 
 //EXISTE
-int existe(arvore raiz, int chave) {
+int existe_bst(arvore raiz, int chave) {
     if (raiz == NULL) {
         return 0; // Árvore vazia, chave não encontrada
     }
@@ -279,14 +279,14 @@ int existe(arvore raiz, int chave) {
     if (raiz->valor == chave) {
         return 1; // Chave encontrada na raiz
     } else if (chave < raiz->valor) {
-        return existe(raiz->esq, chave); // Busca na subárvore esquerda
+        return existe_bst(raiz->esq, chave); // Busca na subárvore esquerda
     } else {
-        return existe(raiz->dir, chave); // Busca na subárvore direita
+        return existe_bst(raiz->dir, chave); // Busca na subárvore direita
     }
 }
 
 //DESCENDENTES
-arvore descendentes(int n, arvore raiz) {
+arvore descendentes_bst(int n, arvore raiz) {
     if (raiz == NULL) {
         return NULL; // Árvore vazia, não há descendentes
     }
@@ -295,12 +295,23 @@ arvore descendentes(int n, arvore raiz) {
         // Encontrou o nó n, retorna a árvore com os descendentes
         return raiz;
     } else if (n < raiz->valor) {
-        return descendentes(n, raiz->esq); // Busca na subárvore esquerda
+        return descendentes_bst(n, raiz->esq); // Busca na subárvore esquerda
     } else {
-        return descendentes(n, raiz->dir); // Busca na subárvore direita
+        return descendentes_bst(n, raiz->dir); // Busca na subárvore direita
     }
 }
 
-
+//ALTURA
+int altura_bst(arvore raiz) {
+    if (raiz == NULL) {
+        return 0;
+    }
+    
+    int altura_esq = altura(raiz->esq); // Altura da subárvore esquerda
+    int altura_dir = altura(raiz->dir); // Altura da subárvore direita
+    
+    // A altura da árvore é a altura da subárvore mais alta, mais um
+    return 1 + (altura_esq > altura_dir ? altura_esq : altura_dir);
+}
 
     
