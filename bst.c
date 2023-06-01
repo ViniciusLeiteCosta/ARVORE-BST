@@ -195,4 +195,20 @@ arvore sucessor_bst(int n, arvore raiz) {
     }
 }
 
+arvore caminho(int n, arvore raiz) {
+    if (raiz == NULL) {
+        return;
+    }
+
+    printf("[%d]", raiz->valor);
+
+    if (n < raiz->valor) {
+        caminho(n, raiz->esq);
+    } else if (n > raiz->valor) {
+        caminho(n, raiz->dir);
+    } else {
+        printf("\n");
+    }
+}
+
     
