@@ -1,5 +1,5 @@
 # ARVORE-BST
-Atividade - Algoritmos e Estrutura de Dados 2
+Atividade 1 - Algoritmos e Estrutura de Dados 2.
 Criando uma árvore BST em C.
 
 ![Lista 1](https://github.com/ViniciusLeiteCosta/ARVORE-BST/assets/92338016/e9b90b3e-a26c-48be-bfc3-35be3b561234)
