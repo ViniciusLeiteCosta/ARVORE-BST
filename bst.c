@@ -1,26 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//INSERIR
-arvore inserir_bst(arvore raiz, int valor){
-    if(raiz == NULL){
-        arvore novo = (arvore) malloc(sizeof(no));
-        novo->esq = NULL;
-        novo->dir = NULL;
-        novo->valor = valor;
-
-        return novo;
-    }
-} else {
-    if (valor > raiz->valor){
-        raiz->dir = inserir_bst(valor, raiz->dir);
-    } else {
-        raiz->dir = inserir_bst(valor, raiz->dir);
-    }
-
-    return raiz;
-}
-
 //PREORDER
 arvore preorder_bst(arvore raiz){
     if (raiz != NULL){
@@ -60,7 +40,26 @@ arvore posorder_bst(arvore raiz){
         printf("[%d]", raiz->valor);
     }
 }
-        
+
+//INSERIR
+arvore inserir_bst(arvore raiz, int valor){
+    if(raiz == NULL){
+        arvore novo = (arvore) malloc(sizeof(no));
+        novo->esq = NULL;
+        novo->dir = NULL;
+        novo->valor = valor;
+
+        return novo;
+    }
+} else {
+    if (valor > raiz->valor){
+        raiz->dir = inserir_bst(valor, raiz->dir);
+    } else {
+        raiz->dir = inserir_bst(valor, raiz->dir);
+    }
+
+    return raiz;
+}  
 
 //REMOVER
 arvore remover_bst(arvore raiz, int valor){
@@ -104,4 +103,20 @@ arvore remover_bst(arvore raiz, int valor){
         //É simétrico
     }
     return raiz;
+}
+
+//REVERSO (PRINT DECRESCENTE)
+arvore reverso_bst(arvore raiz) {
+    
+    //Verifica se a árvore é vazia.
+    if (root == NULL) {
+        return;
+    }
+    
+    //Percorre as subárvores direitas (maiores);
+    reverso_bst(root->right);
+    //Mostra na tela;
+    printf("[%d]", root->data);
+    //Percorre as subárvores esquerda (menores);
+    reverso_bst(root->left);
 }
