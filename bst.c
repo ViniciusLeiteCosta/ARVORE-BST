@@ -219,7 +219,7 @@ arvore podar_bst(int valor, arvore raiz) {
 }
 
 //REAJUSTAR
-arvore reajusta_bst(arvore raiz, double percentual) {
+arvore reajusta_bst(arvore raiz, int percentual) {
     if (raiz == NULL) {
         return raiz;
     }
