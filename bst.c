@@ -154,6 +154,7 @@ int qtdPrimo(arvore raiz) {
     return total;
 }
 
+//SUCESSOR
 arvore sucessor_bst(int n, arvore raiz) {
     if (raiz == NULL) {
         printf("-1\n");
@@ -195,6 +196,7 @@ arvore sucessor_bst(int n, arvore raiz) {
     }
 }
 
+//CAMINHO
 arvore caminho(int n, arvore raiz) {
     if (raiz == NULL) {
         return;
@@ -209,6 +211,19 @@ arvore caminho(int n, arvore raiz) {
     } else {
         printf("\n");
     }
+}
+
+//SOMATÓRIO
+int somatorio(arvore raiz) {
+    if (raiz == NULL) {
+        return 0;
+    }
+
+    int soma = raiz->valor;
+    soma += somatorio(raiz->esq);
+    soma += somatorio(raiz->dir);
+
+    return soma;
 }
 
     
