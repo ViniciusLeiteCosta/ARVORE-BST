@@ -20,7 +20,7 @@ void sucessor_bst(int valor, arvore raiz);
 void caminho_bst(int valor, arvore raiz);
 int somatorio_bst(arvore raiz);
 arvore podar_bst(int valor, arvore raiz);
-arvore reajusta_bst(arvore raiz, double percentual);
+arvore reajusta_bst(arvore raiz, int percentual);
 int existe_bst(arvore raiz, int valor);
 void descendentes_bst(int valor, arvore raiz);
 int altura_bst(arvore raiz);
