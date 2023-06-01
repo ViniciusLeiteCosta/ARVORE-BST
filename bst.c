@@ -285,6 +285,22 @@ int existe(arvore raiz, int chave) {
     }
 }
 
+//DESCENDENTES
+arvore descendentes(int n, arvore raiz) {
+    if (raiz == NULL) {
+        return NULL; // Árvore vazia, não há descendentes
+    }
+    
+    if (raiz->valor == n) {
+        // Encontrou o nó n, retorna a árvore com os descendentes
+        return raiz;
+    } else if (n < raiz->valor) {
+        return descendentes(n, raiz->esq); // Busca na subárvore esquerda
+    } else {
+        return descendentes(n, raiz->dir); // Busca na subárvore direita
+    }
+}
+
 
 
     
