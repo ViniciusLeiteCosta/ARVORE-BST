@@ -256,5 +256,35 @@ arvore remover_no(arvore no) {
     return NULL;
 }
 
+//REAJUSTA
+arvore reajusta(arvore raiz, double percentual) {
+    if (raiz != NULL) {
+        // Aplica o reajuste ao valor do nó atual
+        raiz->valor = raiz->valor * (1 + percentual);
+
+        // Recursivamente aplica o reajuste aos nós filhos
+        raiz->esq = reajusta(raiz->esq, percentual);
+        raiz->dir = reajusta(raiz->dir, percentual);
+    }
+    
+    return raiz;
+}
+
+//EXISTE
+int existe(arvore raiz, int chave) {
+    if (raiz == NULL) {
+        return 0; // Árvore vazia, chave não encontrada
+    }
+
+    if (raiz->valor == chave) {
+        return 1; // Chave encontrada na raiz
+    } else if (chave < raiz->valor) {
+        return existe(raiz->esq, chave); // Busca na subárvore esquerda
+    } else {
+        return existe(raiz->dir, chave); // Busca na subárvore direita
+    }
+}
+
+
 
     
