@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//INSERIR
+// INSERIR
 arvore inserir_bst(arvore raiz, int valor) {
     if (raiz == NULL) {
         arvore novoNo = (arvore)malloc(sizeof(No));
@@ -21,7 +21,7 @@ arvore inserir_bst(arvore raiz, int valor) {
     return raiz;
 }
 
-//REMOVER
+// REMOVER
 arvore remover_bst(arvore raiz, int valor) {
     if (raiz == NULL) {
         return raiz;
@@ -54,43 +54,43 @@ arvore remover_bst(arvore raiz, int valor) {
     return raiz;
 }
 
-//PREORDER
+// PREORDER
 void preorder_bst(arvore raiz) {
     if (raiz != NULL) {
-        printf("%d ", raiz->valor);
+        printf("[%d]", raiz->valor);
         preorder_bst(raiz->esq);
         preorder_bst(raiz->dir);
     }
 }
 
-//INORDER
+// INORDER
 void inorder_bst(arvore raiz) {
     if (raiz != NULL) {
         inorder_bst(raiz->esq);
-        printf("%d ", raiz->valor);
+        printf("[%d] ", raiz->valor);
         inorder_bst(raiz->dir);
     }
 }
 
-//POSORDER
+// POSORDER
 void posorder_bst(arvore raiz) {
     if (raiz != NULL) {
         posorder_bst(raiz->esq);
         posorder_bst(raiz->dir);
-        printf("%d ", raiz->valor);
+        printf("[%d] ", raiz->valor);
     }
 }
 
-//REVERSO
+// REVERSO
 void reverso_bst(arvore raiz) {
     if (raiz != NULL) {
         reverso_bst(raiz->dir);
-        printf("%d ", raiz->valor);
+        printf("[%d] ", raiz->valor);
         reverso_bst(raiz->esq);
     }
 }
 
-//VERIFICAÇÃO DE NÚMERO PRIMO
+// VERIFICAÇÃO DE NÚMERO PRIMO
 int Primo(int n) {
     if (n <= 1) {
         return 0;
@@ -105,7 +105,7 @@ int Primo(int n) {
     return 1;
 }
 
-//QUANTIDADE DE PRIMOS NA ÁRVORE
+// QUANTIDADE DE PRIMOS NA ÁRVORE
 int qtdPrimo(arvore raiz) {
     if (raiz == NULL) {
         return 0;
@@ -118,10 +118,10 @@ int qtdPrimo(arvore raiz) {
     return count;
 }
 
-//SUCESSOR
+// SUCESSOR
 void sucessor_bst(int valor, arvore raiz) {
     if (raiz == NULL) {
-        printf("Nao existe sucessor.\n");
+        printf("-1.\n");
         return;
     }
 
@@ -138,12 +138,12 @@ void sucessor_bst(int valor, arvore raiz) {
                 while (raiz->esq != NULL) {
                     raiz = raiz->esq;
                 }
-                printf("O sucessor de %d e %d.\n", valor, raiz->valor);
+                printf("%d.\n", raiz->valor);
             } else {
                 if (sucessor != NULL) {
-                    printf("O sucessor de %d e %d.\n", valor, sucessor->valor);
+                    printf("%d.\n", sucessor->valor);
                 } else {
-                    printf("Nao existe sucessor.\n");
+                    printf("-1.\n");
                 }
             }
             return;
@@ -151,16 +151,16 @@ void sucessor_bst(int valor, arvore raiz) {
     }
 }
 
-//CAMINHO DA BST
+// CAMINHO DA BST
 void caminho_bst(int valor, arvore raiz) {
     if (raiz == NULL) {
-        printf("O valor %d nao existe na BST.\n", valor);
         return;
     }
 
-    printf("Caminho ate %d: ", valor);
+    printf("[%d]: ", valor);
+
     while (raiz != NULL) {
-        printf("%d ", raiz->valor);
+        printf("[%d] ", raiz->valor);
         if (valor < raiz->valor) {
             raiz = raiz->esq;
         } else if (valor > raiz->valor) {
@@ -169,10 +169,11 @@ void caminho_bst(int valor, arvore raiz) {
             printf("\n");
             return;
         }
+        printf("\n");
     }
 }
 
-//SOMATÓRIO
+// SOMATÓRIO
 int somatorio_bst(arvore raiz) {
     if (raiz == NULL) {
         return 0;
@@ -185,7 +186,7 @@ int somatorio_bst(arvore raiz) {
     return soma;
 }
 
-//PODAR
+// PODAR
 arvore podar_bst(int valor, arvore raiz) {
     if (raiz == NULL) {
         return raiz;
@@ -218,20 +219,20 @@ arvore podar_bst(int valor, arvore raiz) {
     return raiz;
 }
 
-//REAJUSTAR
+// REAJUSTAR
 arvore reajusta_bst(arvore raiz, int percentual) {
     if (raiz == NULL) {
         return raiz;
     }
 
-    raiz->valor = (int)(raiz->valor * (1 + percentual / 100));
+    raiz->valor = (int)(raiz->valor * (1 + percentual / 100.0));
     raiz->esq = reajusta_bst(raiz->esq, percentual);
     raiz->dir = reajusta_bst(raiz->dir, percentual);
 
     return raiz;
 }
 
-//EXISTE
+// EXISTE
 int existe_bst(arvore raiz, int valor) {
     if (raiz == NULL) {
         return 0;
@@ -246,10 +247,9 @@ int existe_bst(arvore raiz, int valor) {
     }
 }
 
-//DESCENDENTES
+// DESCENDENTES
 void descendentes_bst(int valor, arvore raiz) {
     if (raiz == NULL) {
-        printf("O valor %d nao existe na BST.\n", valor);
         return;
     }
 
@@ -265,11 +265,10 @@ void descendentes_bst(int valor, arvore raiz) {
     }
 
     if (no == NULL) {
-        printf("O valor %d nao existe na BST.\n", valor);
         return;
     }
 
-    printf("Descendentes de %d: ", valor);
+    printf("Descendentes de [%d]: ", valor);
     if (no->esq != NULL) {
         inorder_bst(no->esq);
     }
@@ -279,7 +278,7 @@ void descendentes_bst(int valor, arvore raiz) {
     printf("\n");
 }
 
-//ALTURA
+// ALTURA
 int altura_bst(arvore raiz) {
     if (raiz == NULL) {
         return -1;
@@ -291,7 +290,7 @@ int altura_bst(arvore raiz) {
     return 1 + (altura_esq > altura_dir ? altura_esq : altura_dir);
 }
 
-//IMPRIMIR ÁRVORE
+// IMPRIMIR ÁRVORE
 void imprimir_arvore(arvore raiz, int nivel) {
     if (raiz == NULL) {
         return;
@@ -305,8 +304,3 @@ void imprimir_arvore(arvore raiz, int nivel) {
     imprimir_arvore(raiz->dir, nivel + 1);
 }
 
-//FINALIZAR PROGRAMA
-void sair() {
-    printf("\n------ FINALIZANDO PROGRAMA ------\n");
-    exit(0);
-}
